@@ -21,7 +21,7 @@ public class Program {
 			System.out.println("------ Conta Poupança ------");
 			System.out.print("Informe seu saldo: ");
 			double saldo = sc.nextDouble();
-			double taxaDeJuros = 1;
+			double taxaDeJuros = saldo * 2;
 			ContaPoupanca cp = new ContaPoupanca(numero, proprietario, saldo, taxaDeJuros);
 			System.out.print("O seu limite de emprestimo é: " + cp.getTaxaDeJuros());
 			System.out.println("----------------------------");
@@ -31,7 +31,7 @@ public class Program {
 			double saldo = sc.nextDouble();
 			double limiteEmprestimo = saldo * 5;
 			ContaEmpresarial ce = new ContaEmpresarial(numero, proprietario, saldo, limiteEmprestimo);
-			System.out.print("A sua taxa de juros é: " + ce.getLimiteEmprestimo());
+			System.out.println("A sua taxa de juros é: " + ce.getLimiteEmprestimo());
 			System.out.println("-------------------------------");
 		} else {
 			System.out.print("Opção inválida.");

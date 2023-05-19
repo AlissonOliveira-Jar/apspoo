@@ -18,7 +18,10 @@ public class Conta {
 	}
 
 	public void retirar(double quantia) {
-		saldo -= quantia + 5.0;
+		if(quantia > saldo) {
+			throw new IllegalArgumentException("Saldo Insuficiente.");
+		}
+		saldo -= quantia;
 	}
 
 	public double getSaldo() {

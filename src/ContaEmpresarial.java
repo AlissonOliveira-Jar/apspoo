@@ -19,7 +19,7 @@ public class ContaEmpresarial extends Conta {
 		this.limiteEmprestimo = limiteEmprestimo;
 	}
 
-	public void Emprestimo(double quantia) {
+	public void emprestimo(double quantia) {
 		if (quantia <= limiteEmprestimo) {
 			saldo += quantia - 10.0;
 		}
