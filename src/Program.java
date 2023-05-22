@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Program {
 
+
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -19,28 +20,33 @@ public class Program {
 
 		if (o == 'p' || o == 'P') {
 			System.out.println("------ Conta Poupança ------");
-			System.out.print("Informe seu saldo: ");
+			System.out.print("Informe seu saldo: R$ ");
 			double saldo = sc.nextDouble();
 			double taxaDeJuros = saldo * 2;
 			ContaPoupanca cp = new ContaPoupanca(numero, proprietario, saldo, taxaDeJuros);
-			System.out.print("O seu limite de emprestimo é: " + cp.getTaxaDeJuros());
+			Transacao transaction = new Transacao(cp);
+			System.out.println("O seu limite de emprestimo é: R$" + cp.getTaxaDeJuros());
 
-			//Do while para fluxo de "menu"
-			//Usuário erá escolher uma das opções e quando tiver finalizado retornará ao "menu"
-			//Esse fluxo só será finalizado quando o usuário escolher a opção "Finalizar"
 			do {
 				System.out.println("----------------------------");
 				System.out.println("Sacar     [S] \nDepositar [D] \nFinalizar [F] ");
 				o = sc.next().charAt(0);
 
 				if (o == 's' || o == 'S') {
-
+					System.out.println("----------------------------");
+					System.out.print("Quanto deseja sacar? R$");
+					float valorSaque = sc.nextFloat();
+					transaction.withdraw(valorSaque);
 
 				}else if (o == 'd' || o == 'D') {
+					System.out.println("----------------------------");
+					System.out.print("Quanto deseja depositar? R$");
+					float valorDeposito = sc.nextFloat();
+					transaction.deposit(valorDeposito);
 
 				}else if(o == 'f' || o == 'F') {
-				System.out.println("Sessão encerrada.");
-				break;
+					System.out.println("Sessão encerrada.");
+					break;
 				}
 
 			}while(true);
@@ -48,15 +54,38 @@ public class Program {
 
 		} else if (o == 'e' || o == 'E') {
 			System.out.println("------ Conta Empresarial ------");
-			System.out.print("Informe seu saldo: ");
+			System.out.print("Informe seu saldo: R$");
 			double saldo = sc.nextDouble();
 			double limiteEmprestimo = saldo * 5;
 			ContaEmpresarial ce = new ContaEmpresarial(numero, proprietario, saldo, limiteEmprestimo);
-			System.out.println("A sua taxa de juros é: " + ce.getLimiteEmprestimo());
+			Transacao transaction = new Transacao(ce);
+			System.out.println("A sua taxa de juros é: R$" + ce.getLimiteEmprestimo());
 			System.out.println("-------------------------------");
 
-			//Menu
-			System.out.print("Sacar [S] \n Depositar [D] \n Finalizar [F]: ");
+
+			do {
+				System.out.println("----------------------------");
+				System.out.println("Sacar     [S] \nDepositar [D] \nFinalizar [F] ");
+				o = sc.next().charAt(0);
+
+				if (o == 's' || o == 'S') {
+					System.out.println("----------------------------");
+					System.out.print("Quanto deseja sacar? R$");
+					float valorSaque = sc.nextFloat();
+					transaction.withdraw(valorSaque);
+
+				}else if (o == 'd' || o == 'D') {
+					System.out.println("----------------------------");
+					System.out.print("Quanto deseja depositar? R$");
+					float valorDeposito = sc.nextFloat();
+					transaction.deposit(valorDeposito);
+
+				}else if(o == 'f' || o == 'F') {
+					System.out.println("Sessão encerrada.");
+					break;
+				}
+
+			}while(true);
 
 
 

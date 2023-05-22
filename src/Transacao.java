@@ -8,11 +8,11 @@ public class Transacao {
 	}
 
 	public void deposit(double quantia) {
-		conta.deposito(quantia);
+		this.conta.deposito(quantia);
 	}
 
 	public void withdraw(double quantia) {
-		conta.retirar(quantia);
+		this.conta.retirar(quantia);
 	}
 
 }

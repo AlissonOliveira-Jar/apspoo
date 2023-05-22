@@ -15,13 +15,18 @@ public class Conta {
 
 	public void deposito(double quantia) {
 		saldo += quantia;
+		System.out.println("Saldo depositado com sucesso!");
+		System.out.println("Seu saldo atual é: R$" + saldo);
 	}
 
 	public void retirar(double quantia) {
-		if(quantia > saldo) {
-			throw new IllegalArgumentException("Saldo Insuficiente.");
+		if (quantia > saldo) {
+			System.out.println("Saldo insuficiente.");
+		} else {
+			saldo -= quantia;
+			System.out.println("Saldo retirado com sucesso!");
+			System.out.println("Seu saldo atual é: R$" + saldo);
 		}
-		saldo -= quantia;
 	}
 
 	public double getSaldo() {
